@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body style="margin:0;background:black;overflow:hidden;">
+
+<video id="video" autoplay controls style="width:100%;height:100%;"></video>
+
+<script>
+var video = document.getElementById('video');
+
+if (Hls.isSupported()) {
+  var hls = new Hls();
+  hls.loadSource('https://live20.bozztv.com/giatv/giatv-liminalcube/liminalcube/chunks.m3u8');
+  hls.attachMedia(video);
+} else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+  video.src = 'https://live20.bozztv.com/giatv/giatv-liminalcube/liminalcube/chunks.m3u8';
+}
+</script>
+
+</body>
+</html>
